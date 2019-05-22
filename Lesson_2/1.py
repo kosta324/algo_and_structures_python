@@ -9,3 +9,24 @@
 Также сообщать пользователю о невозможности деления на ноль,
 если он ввел 0 в качестве делителя.
 """
+def calc(a, b, act):
+    result = eval(f'{a} {act} {b}')
+    return result
+
+
+actions = ('0', '+', '-', '*', '/')
+
+while True:
+    a = int(input('Введите первое число:\n'))
+    b = int(input('Введите второе число:\n'))
+    act = input("Введите действие, '0', '+', '-', '*', '/': ")
+    if act not in actions:
+        print(f'\nПроверьте ваш ввод, возможно, допущена ошибка действие = {act}\n')
+        continue
+    if b == 0 and act == '/':
+        print(f'\nДеление на ноль запрещено!\n')
+        continue
+    if act == '0':
+        print(f'\nПрограмма завершена')
+        break
+    print(f'Результат расчетов:\n{a} {act} {b} = {calc(a, b, act)}')
